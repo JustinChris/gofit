@@ -92,8 +92,8 @@
 
 </section>
 
+@if ($user->role == "admin" || $user->role == "mo")
 <div style="margin-top: 50px; margin-left: 3%; margin-right: 3%;">
-    @if ($user->role == "admin" || $user->role == "mo")
     <section>
         <table id="scheduleList">
             @foreach (array_keys($schedules) as $schedule)
@@ -117,7 +117,7 @@
 
         </table>
     </section>
-    @endif
 </div>
+@endif
 
 @endsection
