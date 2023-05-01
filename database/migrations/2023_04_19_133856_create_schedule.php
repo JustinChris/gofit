@@ -16,6 +16,7 @@ return new class extends Migration
             $table->dateTime('schedule_for');
             $table->dateTime('finished_on');
             $table->string('name');
+            $table->boolean('isHoliday');
 
             $table->unsignedBigInteger('instructor_id');
             $table->foreign('instructor_id')->references('id')->on('users')->onDelete('cascade');

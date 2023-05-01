@@ -19,6 +19,15 @@ class ScheduleSeeder extends Seeder
             'finished_on' => Carbon::now()->addMonth()->toDateString(),
             'name' => 'Chest Workout',
             'instructor_id' => 1,
+            'isHoliday' => false,
+        ]);
+
+        Schedule::create([
+            'schedule_for' => Carbon::now()->addDay()->toDateTimeString(),
+            'finished_on' => Carbon::now()->addMonth()->toDateString(),
+            'name' => 'Arm Workout',
+            'instructor_id' => 1,
+            'isHoliday' => false,
         ]);
     }
 }

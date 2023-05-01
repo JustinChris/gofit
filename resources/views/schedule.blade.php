@@ -56,7 +56,10 @@
         </tr>
 
         @foreach ($schedule as $sch)
-            <tr>
+            <tr @if ($sch->isHoliday == true)
+                class="bg-dark text-white"
+                @endif
+            >
                 <td>{{$sch->id}}</td>
                 <td>{{$sch->name}}</td>
                 @foreach ($instructors as $instructor)

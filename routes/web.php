@@ -64,6 +64,7 @@ Route::middleware('auth.mo')->group(function() {
     Route::get('/schedule/delete/{id}', [ScheduleController::class, 'getDeleteSchedule']);
     Route::get('/schedule/update/{id}', [ScheduleController::class, 'getUpdateSchedule']);
     Route::post('/schedule/update/{id}', [ScheduleController::class, 'postUpdateSchedule']);
+    Route::get('/schedule/update/status/{id}', [ScheduleController::class, 'getChangeScheduleToHoliday']);
 
     Route::post('/schedule/check/add', [ScheduleController::class, 'postCheckAvailibilty']);
 

@@ -17,5 +17,6 @@ class Schedule extends Model
         'finished_on',
         'name',
         'instructor_id',
+        'isHoliday',
     ];
 }

@@ -84,6 +84,7 @@
             @endif
 
             <button class="w-100 btn btn-success" type="submit">Submit</button>
+            <a href="/schedule/update/status/{{$schedule->id}}" class="btn btn-danger" style="margin-top: 5px;">Cancel Class</a>
         </form>
     </section>
 

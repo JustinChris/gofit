@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DailySchedule extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
     protected $primaryKey = 'id';
     protected $guarded = 'id';
     protected $table = 'daily_schedule';
@@ -17,5 +17,6 @@ class DailySchedule extends Model
         'finished_on',
         'name',
         'instructor_id',
+        'isHoliday',
     ];
 }

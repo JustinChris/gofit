@@ -60,8 +60,9 @@ class ScheduleController extends Controller
     public function getUpdateSchedule($id) {
 
         $schedule = DB::table('schedule')
-                    ->join('users', 'schedule.instructor_id', '=', 'users.id')
+                    ->join('users', 'instructor_id', '=', 'users.id')
                     ->where(['schedule.id' => $id])
+                    ->select(['schedule.id','schedule_for','finished_on','name','isHoliday','instructor_id','username'])
                     ->first();
         $instructorSchedule = [];
 
@@ -105,18 +106,30 @@ class ScheduleController extends Controller
         DailySchedule::truncate();
 
         $now = Carbon::now()->getDaysFromStartOfWeek();
-        $firstdayofweek = Carbon::now()->subDays($now-1);
-        $lastdayofweek = Carbon::now()->addDays(7-$now);
+        $firstdayofweek = Carbon::now()->subDays($now-1)->toDateString();
+        $lastdayofweek = Carbon::now()->addDays(7-$now)->toDateString();
         
         $schedules = Schedule::whereBetween('schedule_for', [$firstdayofweek, $lastdayofweek])->get();
         
         foreach($schedules as $schedule) {
             DailySchedule::create([
-                'schedule_for'
+                'schedule_for' => $schedule->schedule_for,
+                'finished_on' => $schedule->finished_on,
+                'name' => $schedule->name,
+                'instructor_id' => $schedule->instructor_id,
+                'isHoliday' =>$schedule->isHoliday,
             ]);
         }
+    }
 
-        dd($schedule);
+    public function getChangeScheduleToHoliday($id) {
+
+        $schedule = Schedule::where(['id' => $id])->first();
+
+        $schedule->isHoliday = true;
+        $schedule->save();
+
+        return redirect('/schedule/update/' . $id);
     }
 
 }
