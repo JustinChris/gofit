@@ -91,7 +91,7 @@ class MemberController extends Controller
             $user->password = bcrypt("DEFAULT");
             $user->save();
         }
-        return redirect('/instructors/update/' . $id);
+        return redirect('/members/update/' . $id);
     }
 
     public function getMembership($id) {
