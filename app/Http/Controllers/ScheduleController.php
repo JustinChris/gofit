@@ -46,6 +46,7 @@ class ScheduleController extends Controller
             'finished_on' => $request->ends,
             'name' => $request->name,
             'instructor_id' => $request->instructor,
+            'isHoliday' => false,
         ]);
         return redirect('/schedule/add');
     }
@@ -88,7 +89,7 @@ class ScheduleController extends Controller
         $conflict = Schedule::where(['schedule_for' => $request->start, 'instructor_id' => $request->instructor])->first();
 
         if ($conflict) {
-            return redirect('/schedule/add')->withErrors('Schedule Conflicted');
+            return redirect('/schedule/update/' . $id)->withErrors('Schedule Conflicted');
         }
 
         $schedule = Schedule::where(['id' => $id])->first();
