@@ -14,15 +14,17 @@ class TransactionSeeder extends Seeder
     public function run(): void
     {
         Transaction::create([
-            'type' => 'CLS',
             'deposit' => 500000,
             'title' => 'test',
+            'bonus' => 5000,
+            'user_id' => 5
         ]);
 
         Transaction::create([
-            'type' => 'MBR',
-            'deposit' => 500000,
+            'deposit' => 300000,
             'title' => 'test',
+            'bonus' => 3000,
+            'user_id' => 6
         ]);
     }
 }

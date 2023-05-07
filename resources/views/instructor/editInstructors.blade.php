@@ -12,6 +12,11 @@
 </style>
 @section('content')
     <section id="layout">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <h1 style="text-align: center;">EDIT INSTRUCTORS</h1>
         <form action="/instructors/update/{{$instructor->id}}" method="post">
             @csrf

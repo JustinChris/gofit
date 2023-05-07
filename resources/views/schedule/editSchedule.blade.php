@@ -35,6 +35,11 @@
 
 @section('content')
     <section id="layout">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <h1 style="text-align: center;">EDIT SCHEDULE</h1>
         <form action="/schedule/update/{{$schedule->id}}" method="post">
             @csrf

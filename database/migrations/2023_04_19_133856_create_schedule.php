@@ -17,6 +17,8 @@ return new class extends Migration
             $table->dateTime('finished_on');
             $table->string('name');
             $table->boolean('isHoliday');
+            $table->integer('price');
+            $table->integer('bonus');
 
             $table->unsignedBigInteger('instructor_id');
             $table->foreign('instructor_id')->references('id')->on('users')->onDelete('cascade');

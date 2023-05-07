@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
     protected $primaryKey = 'id';
     protected $guarded = 'id';
     protected $table = 'booking';
 
     protected $fillable = [
-        'price',
         'class_id',
         'user_id',
     ];

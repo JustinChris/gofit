@@ -20,6 +20,8 @@ class ScheduleSeeder extends Seeder
             'name' => 'Chest Workout',
             'instructor_id' => 1,
             'isHoliday' => false,
+            'price' => 2000,
+            'bonus' => 200,
         ]);
 
         Schedule::create([
@@ -28,6 +30,8 @@ class ScheduleSeeder extends Seeder
             'name' => 'Arm Workout',
             'instructor_id' => 1,
             'isHoliday' => false,
+            'price' => 2000,
+            'bonus' => 200,
         ]);
     }
 }

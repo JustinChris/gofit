@@ -32,7 +32,7 @@ class InstructorController extends Controller
             'address' => $request->address,
         ]);
 
-        return redirect('/instructors/add');
+        return redirect('/instructors/add')->with('message', 'Add Success');
     }
 
     public function getDeleteInstructors($id) {
@@ -70,7 +70,7 @@ class InstructorController extends Controller
         $content->address = $request->address;
         $content->save();
 
-        return redirect('/instructors/update/' . $id);
+        return redirect('/instructors/update/' . $id)->with('message', 'Update Success');
     }
     
 }

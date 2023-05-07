@@ -18,5 +18,7 @@ class Schedule extends Model
         'name',
         'instructor_id',
         'isHoliday',
+        'price',
+        'bonus'
     ];
 }

@@ -45,6 +45,16 @@ Route::middleware('auth.kasir')->group(function() {
     Route::get('/members/password/reset/{id}', [MemberController::class, 'getResetPassword']);
     Route::get('/members/membership/add/{id}', [MemberController::class, 'getMembership']);
     Route::post('/members/membership/add/{id}', [MemberController::class, 'postMembership']);
+    Route::get('/members/receipt/membership/{id}',[ReceiptController::class, 'getPrintMembershipReceipt']);
+
+    Route::get('/members/deposit/{id}', [MemberController::class, 'getMemberDeposit']);
+    Route::post('/members/deposit/{id}', [MemberController::class, 'postMemberDeposit']);
+    Route::get('/members/receipt/deposit/{id}',[ReceiptController::class, 'getPrintDepositReceipt']);
+
+    Route::get('/members/class/{id}', [MemberController::class, 'getMemberClass']);
+    Route::post('/members/class/{id}', [MemberController::class, 'postMemberClass']);
+    Route::get('/members/receipt/class/{id}',[ReceiptController::class, 'getPrintClassReceipt']);
+
 });
 
 

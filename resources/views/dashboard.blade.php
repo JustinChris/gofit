@@ -95,6 +95,7 @@
 @if ($user->role == "admin" || $user->role == "mo")
 <div style="margin-top: 50px; margin-left: 3%; margin-right: 3%;">
     <section>
+        <span class="hidden">{{$generated_at=""}}</span>
         <table id="scheduleList">
             @foreach (array_keys($schedules) as $schedule)
                 <tr>
@@ -107,8 +108,12 @@
                 <tr>
                     <td>
                         <div class="bg-warning" style="padding: 10px; border-radius: 20px;">
-                            {{ $sch->name }} <br>
-                            {{ $sch->schedule_for }} - {{ $sch->finished_on }}
+                            <b>{{ $sch->name }}</b> <br>
+                            {{ $sch->schedule_for }} - {{ $sch->finished_on }} <br>
+
+                            @if ($sch->schedule_for)
+                                <span class="hidden">Created At: {{$generated_at = $sch->created_at}}</span>
+                            @endif
                         </div>
                     </td>
                 </tr>
@@ -116,6 +121,7 @@
             @endforeach
 
         </table>
+        <span>Generated At: {{$generated_at}}</span>
     </section>
 </div>
 @endif

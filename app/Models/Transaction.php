@@ -12,8 +12,9 @@ class Transaction extends Model
     protected $table = 'transaction';
 
     protected $fillable = [
-        'type', // CLS = class, MBR = Member
         'deposit',
-        'title', // if type == class: instructor_id-schedule_id-CLS, else if type == member: user_id-membership_id-MBR
+        'title', 
+        'bonus', // bonus in number
+        'user_id',
     ];
 }

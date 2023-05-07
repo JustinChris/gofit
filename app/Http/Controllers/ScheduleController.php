@@ -47,8 +47,10 @@ class ScheduleController extends Controller
             'name' => $request->name,
             'instructor_id' => $request->instructor,
             'isHoliday' => false,
+            'price' => 2000,
+            'bonus' => 200,
         ]);
-        return redirect('/schedule/add');
+        return redirect('/schedule/add')->with('message', 'Add Success');
     }
 
     public function getDeleteSchedule($id) {
@@ -88,7 +90,7 @@ class ScheduleController extends Controller
 
         $conflict = Schedule::where(['schedule_for' => $request->start, 'instructor_id' => $request->instructor])->first();
 
-        if ($conflict) {
+        if ($conflict && $conflict->id != $id) {
             return redirect('/schedule/update/' . $id)->withErrors('Schedule Conflicted');
         }
 
@@ -100,7 +102,7 @@ class ScheduleController extends Controller
         $schedule->instructor_id = $request->instructor;
         $schedule->save();
 
-        return redirect('/schedule/update/' . $id);
+        return redirect('/schedule/update/' . $id)->with('message', 'Update Success');
     }
 
     public function getGenerateDailySchedule() {
@@ -121,6 +123,7 @@ class ScheduleController extends Controller
                 'isHoliday' =>$schedule->isHoliday,
             ]);
         }
+        return redirect('/dashboard');
     }
 
     public function getChangeScheduleToHoliday($id) {
@@ -130,7 +133,7 @@ class ScheduleController extends Controller
         $schedule->isHoliday = true;
         $schedule->save();
 
-        return redirect('/schedule/update/' . $id);
+        return redirect('/schedule/update/' . $id)->with('message', 'Update Success');
     }
 
 }

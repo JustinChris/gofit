@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('membership', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->date('subscribed_on');
             $table->date('expired_on');
             $table->integer('price');

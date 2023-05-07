@@ -35,6 +35,11 @@
 </style>
 @section('content')
     <section id="layout">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <h1 style="text-align: center;">EDIT MEMBER</h1>
         <form action="/members/update/{{$member->id}}" method="post" style="width: 60%;">
             @csrf

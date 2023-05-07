@@ -43,7 +43,10 @@
     <h1 style="text-align: center;">Schedule</h1>
     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
         <span>Total Schedule: {{$schedule->count()}}</span>
-        <a href="/schedule/add" class="btn btn-success" style="font-weight: bold; padding: 10px;">+ Add Schedule</a>
+        <span>
+            <a href="/schedule/add" class="btn btn-success" style="font-weight: bold; padding: 10px;">+ Add Schedule</a>
+            <a href="/schedule/generate" class="btn btn-primary" style="font-weight: bold; padding: 10px;">Generate Daily Schedule</a>
+        </span>
     </div>
     <table id="scheduleList">
         <tr class="bg-success">

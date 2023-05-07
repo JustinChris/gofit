@@ -14,66 +14,73 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'username' => 'Jowo Dirgantara',
-            'email' => 'dirgantara@gmail.com',
-            'password' => bcrypt('jowo123'),
-            'phone' => '08123456789',
-            'address' => 'jl. dirgantara jakarta 123',
+            'username' => 'Martin',
+            'email' => 'martin@gmail.com',
+            'password' => bcrypt('martin123'),
+            'phone' => '081245623890',
+            'address' => 'Jl. Mikita',
             'role' => 'instructor',
+            'balance' => 0,
         ]);
 
         User::create([
-            'username' => 'Beni Laptem',
-            'email' => 'beni@gmail.com',
-            'password' => bcrypt('beni123'),
-            'phone' => '08123456789',
-            'address' => 'jl. beni jakarta 123',
+            'username' => 'Juven',
+            'email' => 'juven@gmail.com',
+            'password' => bcrypt('juven123'),
+            'phone' => '082198468734',
+            'address' => 'Jl. Badak',
             'role' => 'instructor',
+            'balance' => 0,
         ]);
 
         User::create([
-            'username' => 'admin123',
-            'email' => 'admin123@gmail.com',
+            'username' => 'admins',
+            'email' => 'admins@gmail.com',
             'password' => bcrypt('admin123'),
-            'phone' => '00000000000',
-            'address' => 'jl. admin jakarta 123',
+            'phone' => '081275847149',
+            'address' => 'Jl. Cempedak',
             'role' => 'admin',
+            'balance' => 0,
         ]);
 
         User::create([
-            'username' => 'kasir123',
-            'email' => 'kasir123@gmail.com',
+            'username' => 'kasir',
+            'email' => 'kasir@gmail.com',
             'password' => bcrypt('kasir123'),
-            'phone' => '123456789',
-            'address' => 'jl. kasir jakarta 123',
+            'phone' => '081561846278',
+            'address' => 'Jl. Platipus',
             'role' => 'kasir',
+            'balance' => 0,
         ]);
 
         User::create([
-            'username' => 'member dummy123',
-            'email' => 'dummy123@gmail.com',
-            'password' => bcrypt('dummy123'),
+            'username' => 'henry',
+            'email' => 'henry123@gmail.com',
+            'password' => bcrypt('henry123'),
             'phone' => '08123456789',
-            'address' => 'jl. dummy jakarta 123',
+            'address' => 'Jl. Babarsari',
             'role' => 'member',
+            'balance' => 0,
         ]);
 
         User::create([
-            'username' => 'member dummy321',
-            'email' => 'dummy321@gmail.com',
-            'password' => bcrypt('dummy321'),
-            'phone' => '08123456789',
-            'address' => 'jl. dummy jakarta 321',
+            'username' => 'nicho',
+            'email' => 'nicho@gmail.com',
+            'password' => bcrypt('nicho123'),
+            'phone' => '081212216950',
+            'address' => 'Jl. Malioboro',
             'role' => 'member',
+            'balance' => 100000,
         ]);
 
         User::create([
-            'username' => 'Deni Laptem',
-            'email' => 'deni@gmail.com',
-            'password' => bcrypt('deni123'),
-            'phone' => '08123456789',
-            'address' => 'jl. beni jakarta 123',
+            'username' => 'Mani',
+            'email' => 'mani@gmail.com',
+            'password' => bcrypt('mani123'),
+            'phone' => '081245679012',
+            'address' => 'Jl. Jalan',
             'role' => 'mo',
+            'balance' => 0,
         ]);
     }
 }

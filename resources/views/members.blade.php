@@ -57,7 +57,9 @@
             <th>Phone Number</th>
             <th>Address</th>
             <th>Membership</th>
+            <th>Balance</th>
             <th>Action</th>
+            <th>Transaction</th>
         </tr>
 
         @foreach ($members as $member)    
@@ -81,15 +83,28 @@
                         <span>Not A Member</span>
                     </td>
                 @endif
+                <td>@money($member->balance)</td>
                 <span class="hidden">{{$flag = 0}}</span>
                 <td style="display: flex; justify-content: space-evenly;">
                     <a href="/members/print/{{$member->id}}" class="btn btn-primary">Print</a>
                     <a href="/members/delete/{{$member->id}}" class="btn btn-danger">Delete</a>
                     <a href="/members/update/{{$member->id}}" class="btn btn-warning">Edit</a>
                 </td>
-                
+                <td>
+                    <a href="/members/deposit/{{$member->id}}" class="btn btn-success">Deposit</a>
+                    <a href="/members/class/{{$member->id}}" class="btn btn-success">Class</a>
+                </td>
             </tr>
         @endforeach
     </table>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 </section>
 @endsection

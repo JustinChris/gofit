@@ -12,6 +12,11 @@
 
 @section('content')
     <section id="layout">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <h1 style="text-align: center;">ADD MEMBERS</h1>
         <form action="/members/add" method="post">
             @csrf

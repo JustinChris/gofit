@@ -14,13 +14,11 @@ class BookingSeeder extends Seeder
     public function run(): void
     {
         Booking::create([
-            'price' => 30000,
             'user_id' => 5,
             'class_id' => 1
         ]);
 
         Booking::create([
-            'price' => 30000,
             'user_id' => 6,
             'class_id' => 1
         ]);
